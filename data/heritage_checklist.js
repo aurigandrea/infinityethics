@@ -389,7 +389,7 @@ window.HERITAGE_DATA = {
           "risks": [
             {
               "name": "Dataset appears neutral",
-              "short_label": "False nautrality"
+              "short_label": "False neutrality"
             },
             {
               "name": "Reproduced model bias",
