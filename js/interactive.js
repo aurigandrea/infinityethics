@@ -1,4 +1,3 @@
-const DATA_URL = "data/heritage_checklist.json";
 const W = 760, H = 760, RADIUS = Math.min(W, H) / 2 - 14;
 
 function getEntryName(entry) {
@@ -69,16 +68,11 @@ function normalizeData(raw) {
 }
 
 function loadData() {
-  return fetch(DATA_URL)
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .catch(() => {
-      if (window.HERITAGE_DATA) return window.HERITAGE_DATA;
-      throw new Error("Could not load JSON and no fallback global data found");
-    })
-    .then(normalizeData);
+  if (!window.HERITAGE_DATA) {
+    return Promise.reject(new Error("Could not load data from heritage_checklist.js"));
+  }
+
+  return Promise.resolve(window.HERITAGE_DATA).then(normalizeData);
 }
 
 const tooltip = document.getElementById("tooltip");

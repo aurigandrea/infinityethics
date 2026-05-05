@@ -1,4 +1,3 @@
-const DATA_URL = "data/heritage_checklist.json";
 const W = 980, H = 500, RADIUS = W / 2 - 30;
 
 // Safely extract the full display name from a data entry that may be either
@@ -15,10 +14,6 @@ function getEntryShortLabel(entry) {
   return entry?.short_label || entry?.shortLabel || entry?.short || entry?.name || entry?.label || entry?.text || "";
 }
 
-// Convert the canonical JSON schema into the nested D3 hierarchy this page expects.
-// Hierarchy shape: Root → Section → Subcategory → Risk → bestpractice-block → checklist-block
-// Best-practice and checklist data live at subcategory level in the JSON but are
-// duplicated into each risk's children so the arc sizing can account for them.
 function normalizeData(raw) {
   // Already in the expected D3-ready hierarchy shape (legacy / pre-processed data).
   if (raw && Array.isArray(raw.children)) return raw;
@@ -29,7 +24,6 @@ function normalizeData(raw) {
     shortLabel: getEntryShortLabel(entry)
   });
 
-  // Current schema: { name, sections:[{ name, subcategories:[{ name, risks:[], best_practices:[], checks:[] }]}] }
   if (raw && Array.isArray(raw.sections)) {
     const palette = ["#f78da7", "#cf2e2e", "#ff6900", "#fcb900", "#7bdcb5", "#00d084", "#8ed1fc", "#0693e3", "#9b51e0"];
 
@@ -81,19 +75,12 @@ function normalizeData(raw) {
   throw new Error("Unsupported data format in heritage_checklist.json");
 }
 
-// Fetch heritage_checklist.json (works when served via HTTP).
-// Falls back to window.HERITAGE_DATA injected by heritage_checklist.js for local file:// access.
 function loadData() {
-  return fetch(DATA_URL)
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .catch(() => {
-      if (window.HERITAGE_DATA) return window.HERITAGE_DATA;
-      throw new Error("Could not load JSON and no fallback global data found");
-    })
-    .then(normalizeData);
+  if (!window.HERITAGE_DATA) {
+    return Promise.reject(new Error("Could not load data from heritage_checklist.js"));
+  }
+
+  return Promise.resolve(window.HERITAGE_DATA).then(normalizeData);
 }
 
 // Maps depth index to a fill colour function for each ring:
@@ -918,5 +905,5 @@ loadData()
   .catch(err => {
     document.getElementById("grid").innerHTML =
       `<p style="padding:2rem;color:red;">Failed to load data: ${err.message}. ` +
-      `Serve via a local web server for JSON loading, or ensure <code>window.HERITAGE_DATA</code> fallback exists.</p>`;
+      `Ensure <code>data/heritage_checklist.js</code> loads and defines <code>window.HERITAGE_DATA</code>.</p>`;
   });
