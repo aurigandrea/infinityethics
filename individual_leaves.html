@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Heritage Ethics – Individual Sunburst Leaves</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="vendor/d3.min.js"></script>
+  <!-- Data: edit data/heritage_checklist.js directly (window.HERITAGE_DATA) -->
+  <script src="data/heritage_checklist.js"></script>
+  <link rel="stylesheet" href="css/individual_leaves.css" />
+</head>
+<body>
+
+<header>
+  <h1>Digital Heritage Ethics – Individual Principles </h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="interactive.html">Full circle</a>
+  </nav>
+</header>
+
+<p class="subtitle">
+  Each panel shows a single principle.
+  <strong>Principle → Subcategory → Risks → Best practices</strong>.
+   Hover for labels. Click for checklist. Use "Export SVG" or "Export JPEG" to save a static image.
+</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch" style="background:#9b51e0"></div> Subcategory</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#8ed1fc"></div> Risks</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#fcb900"></div> Best Practices</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#7bdcb5"></div> Checklist</div>
+</div>
+
+<div id="grid" class="grid"></div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="js/individual_leaves.js"></script>
+</body>
+</html>

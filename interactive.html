@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Heritage Ethics – Interactive Checklist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="vendor/d3.min.js"></script>
+  <!-- Data: edit data/heritage_checklist.js directly (window.HERITAGE_DATA) -->
+  <script src="data/heritage_checklist.js"></script>
+  <link rel="stylesheet" href="css/interactive.css" />
+</head>
+<body>
+
+<header>
+  <h1>Digital Heritage Ethics – Interactive Risk & Checklist</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="individual_leaves.html">Sunburst</a>
+  </nav>
+</header>
+
+<p class="subtitle">
+  Click a <strong>Risk</strong> segment on the sunburst, or tick a risk in the panel,
+  to reveal the shared best practices and checklist items for its subcategory. Export your selection as text or HTML.
+</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch legend-swatch--principles"></div> Principles</div>
+  <div class="legend-item"><div class="legend-swatch legend-swatch--subcategory"></div> Subcategory</div>
+  <div class="legend-item"><div class="legend-swatch legend-swatch--risks"></div> Risks</div>
+  <div class="legend-item"><div class="legend-swatch legend-swatch--bestpractices"></div> Best Practices</div>
+  <div class="legend-item"><div class="legend-swatch legend-swatch--checklist"></div> Checklist</div>
+</div>
+
+<div class="layout">
+  <!-- LEFT: Sunburst -->
+  <div id="chart-panel">
+    <h2>Click a <strong>Risk</strong> segment to tick it and reveal its shared subcategory checklist</h2>
+    <div id="chart"></div>
+  </div>
+
+  <!-- RIGHT: Checklist panel -->
+  <div id="checklist-panel">
+    <div id="checklist-header">
+      <h2>📋 Checklist</h2>
+      <p>Tick risks to add their shared subcategory checklists here</p>
+    </div>
+    <div id="checklist-body">
+      <p id="checklist-empty">
+        ← Click a <strong>risk segment</strong> on the sunburst<br>
+        or use the list below<br><br>
+        Ticked risks will show their shared<br>best practices &amp; checklist items here.
+      </p>
+    </div>
+    <div id="export-bar">
+      <button class="export-btn btn-primary" id="btnExportText">⬇ Export as Text</button>
+      <button class="export-btn btn-primary" id="btnExportHTML">⬇ Export as HTML</button>
+      <button class="export-btn btn-danger"  id="btnClearAll">✕ Clear All</button>
+    </div>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="js/interactive.js"></script>
+</body>
+</html>

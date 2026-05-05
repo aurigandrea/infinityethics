@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Heritage Ethics for Developers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+<header>
+  <h1>Digital Heritage Ethics Visualisation</h1>
+  <p>
+    This tool provides interactive visualisations of the ethical risks, best practices, and checklists from the  <a href="https://infinity-eccch.eu/" target="_blank" rel="noopener">INFINITY Digital Heritage Ethics Framework</a>,
+    helping developers understand and apply ethical principles in digital heritage projects.
+  </p>
+</header>
+
+<main>
+
+  <div class="info-box">
+    <h2>How to use this tool</h2>
+    <ol class="steps">
+      <li>Read the minimum viable checklist and assess whether all checks have been met. If they have not, proceed to the next step.</li>
+      <li>Visit the <strong><a href="individual_leaves.html">Ethics Risks and Best Practices Tool.</a></strong> For each of the six principles (Participation and Inclusivity, Transparency, Accountability, Trustworthiness, Sustainability of Preservation, and Feasibility and Balance): read the associated risks. If you judge a risk to be medium or high for your project, check the associated best practices and checklists.</li>
+      <li>The tool helps you identify the relevant checklist for the risks you indicate. Use this checklist as a starting point for discussion with colleagues and revisit it throughout the development process.</li>
+      <li>Document the ethical decisions you make. Include this paradata in the documentation of any output.</li>
+      <li>If the Ethics Tool and related checklist do not adequately address all the ethical risks associated with your project, undertake a full ethics review in discussion with the project leadership and consulting the Project Handbook, the Developers Rulebook, and the Data Management Plan for project-level solutions.</li>
+    </ol>
+  </div>
+
+  <div class="info-box mve-box">
+    <h2>Minimum Viable Ethics Checklist</h2>
+    <p>
+      A quick checklist of the most critical ethical considerations for digital heritage projects.
+      Use this as a starting point to identify potential ethical issues before diving into the full framework.
+    </p>
+    <a href="src/MVE.jpg" target="_blank" rel="noopener">
+      <img src="src/MVE.jpg" alt="Minimum Viable Ethics Checklist">
+    </a>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-banner rainbow-banner">🌈</div>
+      <div class="card-content">
+        <h2>Ethics Risks and Best Practices Tool</h2>
+        <p class="card-subtitle">Sunburst Diagrams</p>
+        <p>
+          Six separate sunburst diagrams — one for each main category.
+          Each shows the subcategories, risks, best practices, and checklist items for that principle.
+        </p>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="individual_leaves.html">Open →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-banner" style="background: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%)">✅</div>
+      <div class="card-content">
+        <h2>Ethics Risks and Best Practices Tool</h2>
+        <p class="card-subtitle">Shared Checklist Panel</p>
+        <p>
+          Click a <strong>Risk</strong> segment to tick it and reveal
+          the shared best practices and checklist items for its subcategory in the side panel.
+          Export your selected checklists.
+        </p>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="interactive.html">Open →</a>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Digital Heritage Ethics Guidelines interactive prototype for the <a href="https://infinity-eccch.eu/" target="_blank" rel="noopener">INFINITY Ecosystem</a>.<br>
+  Infinity is a project funded by the European Commission under Grant Agreement n.101233051.
+  The views and opinions expressed in this website are the sole responsibility of the author
+  and do not necessarily reflect the views of the European Union.<br>
+  Andrea Kocsis, Suzanne R. Black, Melissa Terras. University of Edinburgh.
+</footer>
+
+</body>
+</html>
