@@ -1,4 +1,5 @@
 Digital Heritage Ethics Guidelines interactive prototype for the INFINITY Ecosystem.
+Version 1.0.0
 
 FOR PROJECT USE.
 
